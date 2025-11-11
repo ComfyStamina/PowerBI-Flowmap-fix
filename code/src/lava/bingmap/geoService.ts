@@ -102,7 +102,7 @@ export var settings = {
     MaxCacheSizeOverflow: 1000,
             
     // Bing Keys and URL
-    BingKey: "Your key here",
+    BingKey: "",
     BingURL: "https://dev.virtualearth.net/REST/v1/Locations?",
     BingUrlGeodata: "https://platform.bing.com/geo/spatial/v1/public/Geodata?",
 };
@@ -148,7 +148,7 @@ export var settings = {
         }
 
         public getBingUrl(): string {
-            var url = settings.BingURL + "key=" + settings.BingKey;
+            var url = settings.BingURL; // no key required
             if (isNaN(+this.query)) {
                 url += "&q=" + encodeURIComponent(this.query);
             }
@@ -316,19 +316,20 @@ export var settings = {
     }
 
     function captureBingErrors() {
-        try {
-            var lastError: Function = window.window.onerror || (() => { });    
-            window.window.onerror = (msg: Object, url: string, line: number, column?: number, error?: any) => {
-                if (url.indexOf(settings.BingURL) != -1 || url.indexOf(settings.BingUrlGeodata) != -1) {
-                    return false;
-                }
-                lastError(msg, url, line, column, error);
-            };
-        }
-        catch(error) {
-            console.log(error);
-        }
+//        try {
+//            var lastError: Function = window.window.onerror || (() => { });    
+//            window.window.onerror = (msg: Object, url: string, line: number, column?: number, error?: any) => {
+//                if (url.indexOf(settings.BingURL) != -1 || url.indexOf(settings.BingUrlGeodata) != -1) {
+//                    return false;
+//                }
+//                lastError(msg, url, line, column, error);
+//            };
+//        }
+//        catch(error) {
+//            console.log(error);
+//        }
+    return;
     }
 
     reset();
-    captureBingErrors();
+    //captureBingErrors();
