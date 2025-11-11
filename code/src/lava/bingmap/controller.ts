@@ -167,7 +167,7 @@ var capability = {
 
 function parameter(map: Map, fmt: IMapFormat, div: HTMLDivElement): Microsoft.Maps.IMapLoadOptions {
   const para = {
-    credentials: 'Your key here',
+    credentials: '',
     showDashboard: false,
     showTermsLink: false,
     showScalebar: fmt.scale || false,
@@ -429,7 +429,7 @@ export class Controller {
       let script = document.createElement('script');
       script.type = 'text/javascript';
       script.id = 'mapscript';
-      script.src = "https://www.bing.com/api/maps/mapcontrol?callback=__lavaBuildMap";
+      //script.src = "https://www.bing.com/api/maps/mapcontrol?callback=__lavaBuildMap";
       if (dirty.lang !== 'default') {
         script.src += "&setLang=" + dirty.lang;
       }
